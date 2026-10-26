@@ -1,0 +1,92 @@
+Program         ::= FunctionDecl+ EOF
+
+FunctionDecl    ::= "function" IDENT ParamList
+                    "returns" ParamList
+                    ["uses" ParamList]
+                    Contract*
+                    BlockStmt
+
+ParamList       ::= "(" [IDENT ("," IDENT)*] ")"
+
+Contract        ::= ("requires" | "ensures") [Expression] ";"
+
+Statement       ::= BlockStmt
+                  | IfStmt
+                  | WhileStmt
+                  | AssertStmt
+                  | AssumeStmt
+                  | AssignStmt
+
+BlockStmt       ::= "{" Statement* "}"
+
+IfStmt          ::= "if" "(" Expression ")" BlockStmt
+                    ["else" (BlockStmt | IfStmt)]
+
+WhileStmt       ::= "while" "(" Expression ")"
+                    ("invariant" Expression ";")*
+                    BlockStmt
+
+AssertStmt      ::= "assert" Expression ";"
+
+AssumeStmt      ::= "assume" Expression ";"
+
+AssignStmt      ::= IDENT ["[" Expression "]"]
+                    "=" Expression ";"
+
+Expression      ::= OrExpr
+
+OrExpr          ::= AndExpr ("or" AndExpr)*
+
+AndExpr         ::= EqualityExpr ("and" EqualityExpr)*
+
+EqualityExpr    ::= Comparison
+                    (("==" | "!=") Comparison)*
+
+Comparison      ::= AddExpr
+                    (("<" | "<=" | ">" | ">=") AddExpr)*
+
+AddExpr         ::= MulExpr
+                    (("+" | "-") MulExpr)*
+
+MulExpr         ::= UnaryExpr
+                    (("*" | "/") UnaryExpr)*
+
+UnaryExpr       ::= ("not" | "-") UnaryExpr
+                  | PostfixExpr
+
+PostfixExpr     ::= Primary
+                    ("[" Expression "]" | ArgList)*
+
+Primary         ::= INT
+                  | "true"
+                  | "false"
+                  | IDENT
+                  | "length"
+                  | "(" Expression ")"
+
+ArgList         ::= "(" [Expression ("," Expression)*] ")"
+
+
+
+IDENT           ::= [A-Za-z_][A-Za-z0-9_]*
+
+INT             ::= 0 | [1-9][0-9]*
+
+WS              ::= [ \t\r\n]+
+
+COMMENT         ::= "//" [^\r\n]*
+
+KEYWORDS        ::= "function" | "returns" | "uses"
+                  | "requires" | "ensures"
+                  | "while" | "if" | "else"
+                  | "assert" | "assume"
+                  | "invariant" | "length"
+                  | "true" | "false"
+                  | "not" | "and" | "or"
+
+OP              ::= "==" | "!=" | "<=" | ">="
+                  | "<" | ">" | "="
+                  | "+" | "-" | "*" | "/"
+
+DELIM           ::= "(" | ")" | "[" | "]"
+                  | "{" | "}" | "," | ";"

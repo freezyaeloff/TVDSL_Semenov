@@ -1,0 +1,53 @@
+{
+  "type": "Program",
+  "line": 1,
+  "column": 1,
+  "functions": [
+    {
+      "type": "Function",
+      "line": 1,
+      "column": 1,
+      "name": "f",
+      "params": [
+        "x"
+      ],
+      "returns": [
+        "y"
+      ],
+      "uses": [],
+      "requires": [],
+      "ensures": [],
+      "body": {
+        "type": "Block",
+        "line": 1,
+        "column": 27,
+        "statements": [
+          {
+            "type": "Assign",
+            "line": 1,
+            "column": 29,
+            "target": "y",
+            "value": {
+              "type": "Binary",
+              "line": 1,
+              "column": 35,
+              "operator": "+",
+              "left": {
+                "type": "Name",
+                "line": 1,
+                "column": 33,
+                "name": "x"
+              },
+              "right": {
+                "type": "Int",
+                "line": 1,
+                "column": 37,
+                "value": 1
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
