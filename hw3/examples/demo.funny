@@ -1,0 +1,19 @@
+function process(a: int[], n: int) returns (result: int) uses (i)
+requires n >= 0;
+ensures result >= 0;
+{
+    i = 0;
+    result = 0;
+    while (i < n)
+    invariant i >= 0;
+    {
+        if (a[i] > 0) {
+            result = result + a[i];
+        } else {
+            a[i] = 0;
+        }
+        i = i + 1;
+    }
+    assert result >= 0;
+    assume length(a) >= n;
+}

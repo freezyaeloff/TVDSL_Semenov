@@ -1,0 +1,14 @@
+function broken(x: int, flag: bool) returns (r: int) uses (tmp) {
+    missing = x;
+    let x: bool = true;
+    tmp = flag + 1;
+    r = false;
+    assert x;
+    let y;
+    y = y + 1;
+    r = helper(true, 2);
+}
+
+function helper(n: int) returns (out: int) {
+    out = n;
+}

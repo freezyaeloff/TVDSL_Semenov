@@ -1,0 +1,20 @@
+HW3 extends hw2/grammar.txt. Expressions and existing statements are inherited.
+
+FunctionDecl ::= "function" IDENT TypedNames "returns" TypedNames
+                 ["uses" TypedNames] Contract* BlockStmt
+TypedNames   ::= "(" [TypedName ("," TypedName)*] ")"
+TypedName    ::= IDENT [":" Type]
+
+Statement    ::= (all HW2 statements) | VarDecl
+VarDecl      ::= "let" IDENT [":" Type] ["=" Expression] ";"
+Type         ::= IDENT ("[" "]")*
+
+Supported type identifiers: int, bool. Other names are semantic errors.
+The semantic pass requires annotations for parameters and every named result.
+Annotations in uses and let are optional; a local type is inferred from assignment.
+Function calls occur inside expressions, as in HW2. Functions are not values.
+Empty and multiple return lists remain supported; unit/tuple are internal AST types.
+
+New delimiter: :
+New reserved keyword: let
+All tokens use the HW2 DFA except :, recognized before entering the DFA.

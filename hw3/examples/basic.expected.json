@@ -1,0 +1,155 @@
+{
+  "schema_version": "funny.typed-ast.v1",
+  "ast": {
+    "type": "Program",
+    "line": 1,
+    "column": 1,
+    "functions": [
+      {
+        "type": "Function",
+        "line": 1,
+        "column": 1,
+        "name": "f",
+        "name_position": {
+          "line": 1,
+          "column": 10
+        },
+        "params": [
+          "x"
+        ],
+        "returns": [
+          "r"
+        ],
+        "uses": [],
+        "declarations": {
+          "params": [
+            {
+              "type": "Declaration",
+              "line": 1,
+              "column": 12,
+              "name": "x",
+              "annotation": {
+                "type": "TypeName",
+                "line": 1,
+                "column": 15,
+                "name": "int"
+              },
+              "declared_type": "int",
+              "symbol_id": 2
+            }
+          ],
+          "returns": [
+            {
+              "type": "Declaration",
+              "line": 1,
+              "column": 29,
+              "name": "r",
+              "annotation": {
+                "type": "TypeName",
+                "line": 1,
+                "column": 32,
+                "name": "int"
+              },
+              "declared_type": "int",
+              "symbol_id": 3
+            }
+          ],
+          "uses": []
+        },
+        "requires": [],
+        "ensures": [],
+        "body": {
+          "type": "Block",
+          "line": 1,
+          "column": 37,
+          "statements": [
+            {
+              "type": "Assign",
+              "line": 2,
+              "column": 5,
+              "target": "r",
+              "value": {
+                "type": "Binary",
+                "line": 2,
+                "column": 11,
+                "operator": "+",
+                "left": {
+                  "type": "Name",
+                  "line": 2,
+                  "column": 9,
+                  "name": "x",
+                  "symbol_id": 2,
+                  "inferred_type": "int"
+                },
+                "right": {
+                  "type": "Int",
+                  "line": 2,
+                  "column": 13,
+                  "value": 1,
+                  "inferred_type": "int"
+                },
+                "inferred_type": "int"
+              },
+              "symbol_id": 3
+            }
+          ],
+          "scope_id": 1
+        },
+        "signature": {
+          "kind": "func",
+          "params": [
+            "int"
+          ],
+          "returns": "int"
+        },
+        "symbol_id": 1,
+        "scope_id": 1
+      }
+    ]
+  },
+  "symbols": [
+    {
+      "id": 0,
+      "name": "length",
+      "kind": "builtin",
+      "scope_id": 0,
+      "line": 1,
+      "column": 1,
+      "value_type": "builtin length(array<T>):int"
+    },
+    {
+      "id": 1,
+      "name": "f",
+      "kind": "function",
+      "scope_id": 0,
+      "line": 1,
+      "column": 10,
+      "value_type": {
+        "kind": "func",
+        "params": [
+          "int"
+        ],
+        "returns": "int"
+      }
+    },
+    {
+      "id": 2,
+      "name": "x",
+      "kind": "parameter",
+      "scope_id": 1,
+      "line": 1,
+      "column": 12,
+      "value_type": "int"
+    },
+    {
+      "id": 3,
+      "name": "r",
+      "kind": "result",
+      "scope_id": 1,
+      "line": 1,
+      "column": 29,
+      "value_type": "int"
+    }
+  ],
+  "errors": []
+}

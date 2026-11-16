@@ -1,0 +1,18 @@
+function main(x: int) returns (r: int) {
+    let answer: int;
+    if (x >= 0) {
+        answer = increment(x);
+    } else {
+        answer = increment(-x);
+    }
+    r = answer;
+}
+
+function increment(x: int) returns (r: int) {
+    r = x + 1;
+}
+
+function inspect(a: bool[]) returns () {
+    let size = length(a);
+    assert size >= 0;
+}

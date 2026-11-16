@@ -1,0 +1,13 @@
+[
+  {"code": "E_UNKNOWN_NAME", "line": 2, "column": 5},
+  {"code": "E_DUPLICATE", "line": 3, "column": 9},
+  {"code": "E_TYPE_MISMATCH", "line": 4, "column": 11},
+  {"code": "E_TYPE_MISMATCH", "line": 5, "column": 5},
+  {"code": "E_TYPE_MISMATCH", "line": 6, "column": 12},
+  {"code": "E_UNINITIALIZED", "line": 8, "column": 9},
+  {"code": "E_ARGUMENT_COUNT", "line": 9, "column": 15},
+  {"code": "E_TYPE_MISMATCH", "line": 9, "column": 16},
+  {"code": "E_RESULT_UNASSIGNED", "line": 1, "column": 46},
+  {"code": "E_CANNOT_INFER", "line": 1, "column": 60},
+  {"code": "E_CANNOT_INFER", "line": 7, "column": 9}
+]
