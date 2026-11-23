@@ -1,0 +1,627 @@
+{
+  "before": {
+    "ir": {
+      "schema_version": "funny.ir.v1",
+      "functions": {
+        "sum": {
+          "params": [
+            "v3"
+          ],
+          "returns": [
+            "v4"
+          ],
+          "types": {
+            "v3": "int",
+            "v4": "int",
+            "v5": "int",
+            "t0": "bool",
+            "t1": "bool",
+            "t2": "int",
+            "t3": "int",
+            "t4": "int",
+            "t5": "int"
+          },
+          "blocks": {
+            "B0": [
+              {
+                "op": "mov",
+                "args": [
+                  0
+                ],
+                "dest": "v5"
+              },
+              {
+                "op": "mov",
+                "args": [
+                  0
+                ],
+                "dest": "v4"
+              },
+              {
+                "op": "jmp",
+                "args": [],
+                "targets": [
+                  "B1"
+                ]
+              }
+            ],
+            "B1": [
+              {
+                "op": "<",
+                "args": [
+                  "v5",
+                  "v3"
+                ],
+                "dest": "t0"
+              },
+              {
+                "op": "br",
+                "args": [
+                  "t0"
+                ],
+                "targets": [
+                  "B2",
+                  "B3"
+                ]
+              }
+            ],
+            "B2": [
+              {
+                "op": "<",
+                "args": [
+                  "v5",
+                  2
+                ],
+                "dest": "t1"
+              },
+              {
+                "op": "br",
+                "args": [
+                  "t1"
+                ],
+                "targets": [
+                  "B4",
+                  "B6"
+                ]
+              }
+            ],
+            "B4": [
+              {
+                "op": "+",
+                "args": [
+                  "v4",
+                  "v5"
+                ],
+                "dest": "t2"
+              },
+              {
+                "op": "mov",
+                "args": [
+                  "t2"
+                ],
+                "dest": "v4"
+              },
+              {
+                "op": "jmp",
+                "args": [],
+                "targets": [
+                  "B5"
+                ]
+              }
+            ],
+            "B6": [
+              {
+                "op": "call",
+                "args": [
+                  "v5"
+                ],
+                "dest": "t3",
+                "callee": "twice"
+              },
+              {
+                "op": "+",
+                "args": [
+                  "v4",
+                  "t3"
+                ],
+                "dest": "t4"
+              },
+              {
+                "op": "mov",
+                "args": [
+                  "t4"
+                ],
+                "dest": "v4"
+              },
+              {
+                "op": "jmp",
+                "args": [],
+                "targets": [
+                  "B5"
+                ]
+              }
+            ],
+            "B5": [
+              {
+                "op": "+",
+                "args": [
+                  "v5",
+                  1
+                ],
+                "dest": "t5"
+              },
+              {
+                "op": "mov",
+                "args": [
+                  "t5"
+                ],
+                "dest": "v5"
+              },
+              {
+                "op": "jmp",
+                "args": [],
+                "targets": [
+                  "B1"
+                ]
+              }
+            ],
+            "B3": [
+              {
+                "op": "ret",
+                "args": [
+                  "v4"
+                ]
+              }
+            ]
+          }
+        },
+        "twice": {
+          "params": [
+            "v6"
+          ],
+          "returns": [
+            "v7"
+          ],
+          "types": {
+            "v6": "int",
+            "v7": "int",
+            "t0": "int",
+            "t1": "int",
+            "t2": "int",
+            "t3": "int"
+          },
+          "blocks": {
+            "B0": [
+              {
+                "op": "+",
+                "args": [
+                  "v6",
+                  1
+                ],
+                "dest": "t0"
+              },
+              {
+                "op": "*",
+                "args": [
+                  "t0",
+                  2
+                ],
+                "dest": "t1"
+              },
+              {
+                "op": "+",
+                "args": [
+                  1,
+                  1
+                ],
+                "dest": "t2"
+              },
+              {
+                "op": "-",
+                "args": [
+                  "t1",
+                  "t2"
+                ],
+                "dest": "t3"
+              },
+              {
+                "op": "mov",
+                "args": [
+                  "t3"
+                ],
+                "dest": "v7"
+              },
+              {
+                "op": "ret",
+                "args": [
+                  "v7"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    "analysis": {
+      "sum": {
+        "cfg": {
+          "B0": [
+            "B1"
+          ],
+          "B1": [
+            "B2",
+            "B3"
+          ],
+          "B2": [
+            "B4",
+            "B6"
+          ],
+          "B4": [
+            "B5"
+          ],
+          "B6": [
+            "B5"
+          ],
+          "B5": [
+            "B1"
+          ],
+          "B3": []
+        },
+        "conflicts": {
+          "t0": [],
+          "t1": [],
+          "t2": [],
+          "t3": [],
+          "t4": [],
+          "t5": []
+        },
+        "colors": {
+          "t0": 0,
+          "t1": 0,
+          "t2": 0,
+          "t3": 0,
+          "t4": 0,
+          "t5": 0
+        },
+        "metrics": {
+          "blocks": 7,
+          "instructions": 18,
+          "temporaries": 6,
+          "colors": 1
+        }
+      },
+      "twice": {
+        "cfg": {
+          "B0": []
+        },
+        "conflicts": {
+          "t0": [],
+          "t1": [
+            "t2"
+          ],
+          "t2": [
+            "t1"
+          ],
+          "t3": []
+        },
+        "colors": {
+          "t1": 0,
+          "t2": 1,
+          "t0": 0,
+          "t3": 0
+        },
+        "metrics": {
+          "blocks": 1,
+          "instructions": 6,
+          "temporaries": 4,
+          "colors": 2
+        }
+      }
+    }
+  },
+  "after": {
+    "ir": {
+      "schema_version": "funny.ir.v1",
+      "functions": {
+        "sum": {
+          "params": [
+            "v3"
+          ],
+          "returns": [
+            "v4"
+          ],
+          "types": {
+            "v3": "int",
+            "v4": "int",
+            "v5": "int",
+            "t0": "bool",
+            "t1": "bool",
+            "t2": "int",
+            "t3": "int",
+            "t4": "int",
+            "t5": "int"
+          },
+          "blocks": {
+            "B0": [
+              {
+                "op": "mov",
+                "args": [
+                  0
+                ],
+                "dest": "v5"
+              },
+              {
+                "op": "mov",
+                "args": [
+                  0
+                ],
+                "dest": "v4"
+              },
+              {
+                "op": "jmp",
+                "args": [],
+                "targets": [
+                  "B1"
+                ]
+              }
+            ],
+            "B1": [
+              {
+                "op": "<",
+                "args": [
+                  "v5",
+                  "v3"
+                ],
+                "dest": "t0"
+              },
+              {
+                "op": "br",
+                "args": [
+                  "t0"
+                ],
+                "targets": [
+                  "B2",
+                  "B3"
+                ]
+              }
+            ],
+            "B2": [
+              {
+                "op": "<",
+                "args": [
+                  "v5",
+                  2
+                ],
+                "dest": "t1"
+              },
+              {
+                "op": "br",
+                "args": [
+                  "t1"
+                ],
+                "targets": [
+                  "B4",
+                  "B6"
+                ]
+              }
+            ],
+            "B4": [
+              {
+                "op": "+",
+                "args": [
+                  "v4",
+                  "v5"
+                ],
+                "dest": "t2"
+              },
+              {
+                "op": "mov",
+                "args": [
+                  "t2"
+                ],
+                "dest": "v4"
+              },
+              {
+                "op": "jmp",
+                "args": [],
+                "targets": [
+                  "B5"
+                ]
+              }
+            ],
+            "B6": [
+              {
+                "op": "call",
+                "args": [
+                  "v5"
+                ],
+                "dest": "t3",
+                "callee": "twice"
+              },
+              {
+                "op": "+",
+                "args": [
+                  "v4",
+                  "t3"
+                ],
+                "dest": "t4"
+              },
+              {
+                "op": "mov",
+                "args": [
+                  "t4"
+                ],
+                "dest": "v4"
+              },
+              {
+                "op": "jmp",
+                "args": [],
+                "targets": [
+                  "B5"
+                ]
+              }
+            ],
+            "B5": [
+              {
+                "op": "+",
+                "args": [
+                  "v5",
+                  1
+                ],
+                "dest": "t5"
+              },
+              {
+                "op": "mov",
+                "args": [
+                  "t5"
+                ],
+                "dest": "v5"
+              },
+              {
+                "op": "jmp",
+                "args": [],
+                "targets": [
+                  "B1"
+                ]
+              }
+            ],
+            "B3": [
+              {
+                "op": "ret",
+                "args": [
+                  "v4"
+                ]
+              }
+            ]
+          }
+        },
+        "twice": {
+          "params": [
+            "v6"
+          ],
+          "returns": [
+            "v7"
+          ],
+          "types": {
+            "v6": "int",
+            "v7": "int",
+            "t0": "int",
+            "t1": "int",
+            "t3": "int"
+          },
+          "blocks": {
+            "B0": [
+              {
+                "op": "+",
+                "args": [
+                  "v6",
+                  1
+                ],
+                "dest": "t0"
+              },
+              {
+                "op": "*",
+                "args": [
+                  "t0",
+                  2
+                ],
+                "dest": "t1"
+              },
+              {
+                "op": "-",
+                "args": [
+                  "t1",
+                  2
+                ],
+                "dest": "t3"
+              },
+              {
+                "op": "mov",
+                "args": [
+                  "t3"
+                ],
+                "dest": "v7"
+              },
+              {
+                "op": "ret",
+                "args": [
+                  "v7"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    "analysis": {
+      "sum": {
+        "cfg": {
+          "B0": [
+            "B1"
+          ],
+          "B1": [
+            "B2",
+            "B3"
+          ],
+          "B2": [
+            "B4",
+            "B6"
+          ],
+          "B4": [
+            "B5"
+          ],
+          "B6": [
+            "B5"
+          ],
+          "B5": [
+            "B1"
+          ],
+          "B3": []
+        },
+        "conflicts": {
+          "t0": [],
+          "t1": [],
+          "t2": [],
+          "t3": [],
+          "t4": [],
+          "t5": []
+        },
+        "colors": {
+          "t0": 0,
+          "t1": 0,
+          "t2": 0,
+          "t3": 0,
+          "t4": 0,
+          "t5": 0
+        },
+        "metrics": {
+          "blocks": 7,
+          "instructions": 18,
+          "temporaries": 6,
+          "colors": 1
+        }
+      },
+      "twice": {
+        "cfg": {
+          "B0": []
+        },
+        "conflicts": {
+          "t0": [],
+          "t1": [],
+          "t3": []
+        },
+        "colors": {
+          "t0": 0,
+          "t1": 0,
+          "t3": 0
+        },
+        "metrics": {
+          "blocks": 1,
+          "instructions": 5,
+          "temporaries": 3,
+          "colors": 1
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+function calc(x: int) returns (r: int) {
+    let scale = 2 + 3;
+    let unused = x * 9;
+    let y = x + 0;
+    r = y * scale;
+}

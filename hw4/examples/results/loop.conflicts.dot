@@ -1,0 +1,35 @@
+graph conflicts {
+  node [fontname="monospace"];
+  subgraph cluster_before_0 {
+    label="sum — До оптимизаций";
+    before_0_t0 [style=filled, fillcolor="#bfdbfe", label="t0 [0]"];
+    before_0_t1 [style=filled, fillcolor="#bfdbfe", label="t1 [0]"];
+    before_0_t2 [style=filled, fillcolor="#bfdbfe", label="t2 [0]"];
+    before_0_t3 [style=filled, fillcolor="#bfdbfe", label="t3 [0]"];
+    before_0_t4 [style=filled, fillcolor="#bfdbfe", label="t4 [0]"];
+    before_0_t5 [style=filled, fillcolor="#bfdbfe", label="t5 [0]"];
+  }
+  subgraph cluster_before_1 {
+    label="twice — До оптимизаций";
+    before_1_t0 [style=filled, fillcolor="#bfdbfe", label="t0 [0]"];
+    before_1_t1 [style=filled, fillcolor="#bfdbfe", label="t1 [0]"];
+    before_1_t1 -- before_1_t2;
+    before_1_t2 [style=filled, fillcolor="#bbf7d0", label="t2 [1]"];
+    before_1_t3 [style=filled, fillcolor="#bfdbfe", label="t3 [0]"];
+  }
+  subgraph cluster_after_0 {
+    label="sum — После оптимизаций";
+    after_0_t0 [style=filled, fillcolor="#bfdbfe", label="t0 [0]"];
+    after_0_t1 [style=filled, fillcolor="#bfdbfe", label="t1 [0]"];
+    after_0_t2 [style=filled, fillcolor="#bfdbfe", label="t2 [0]"];
+    after_0_t3 [style=filled, fillcolor="#bfdbfe", label="t3 [0]"];
+    after_0_t4 [style=filled, fillcolor="#bfdbfe", label="t4 [0]"];
+    after_0_t5 [style=filled, fillcolor="#bfdbfe", label="t5 [0]"];
+  }
+  subgraph cluster_after_1 {
+    label="twice — После оптимизаций";
+    after_1_t0 [style=filled, fillcolor="#bfdbfe", label="t0 [0]"];
+    after_1_t1 [style=filled, fillcolor="#bfdbfe", label="t1 [0]"];
+    after_1_t3 [style=filled, fillcolor="#bfdbfe", label="t3 [0]"];
+  }
+}

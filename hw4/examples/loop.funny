@@ -1,0 +1,16 @@
+function sum(n: int) returns (r: int) uses (i) {
+    i = 0;
+    r = 0;
+    while (i < n) {
+        if (i < 2) {
+            r = r + i;
+        } else {
+            r = r + twice(i);
+        }
+        i = i + 1;
+    }
+}
+
+function twice(x: int) returns (r: int) {
+    r = (x + 1) * 2 - (1 + 1);
+}

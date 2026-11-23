@@ -1,0 +1,15 @@
+graph conflicts {
+  node [fontname="monospace"];
+  subgraph cluster_before_0 {
+    label="calc — До оптимизаций";
+    before_0_t0 [style=filled, fillcolor="#bfdbfe", label="t0 [0]"];
+    before_0_t1 [style=filled, fillcolor="#bfdbfe", label="t1 [0]"];
+    before_0_t2 [style=filled, fillcolor="#bfdbfe", label="t2 [0]"];
+    before_0_t3 [style=filled, fillcolor="#bfdbfe", label="t3 [0]"];
+  }
+  subgraph cluster_after_0 {
+    label="calc — После оптимизаций";
+    after_0_t2 [style=filled, fillcolor="#bfdbfe", label="t2 [0]"];
+    after_0_t3 [style=filled, fillcolor="#bfdbfe", label="t3 [0]"];
+  }
+}

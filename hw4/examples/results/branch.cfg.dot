@@ -1,0 +1,22 @@
+digraph cfg {
+  node [fontname="monospace"];
+  subgraph cluster_before_0 {
+    label="choose — До оптимизаций\nБлоков 4";
+    before_0_B0 [shape=box, label="B0"];
+    before_0_B0 -> before_0_B1 [label="true"];
+    before_0_B0 -> before_0_B3 [label="false"];
+    before_0_B1 [shape=box, label="B1"];
+    before_0_B1 -> before_0_B2;
+    before_0_B3 [shape=box, label="B3"];
+    before_0_B3 -> before_0_B2;
+    before_0_B2 [shape=box, label="B2"];
+  }
+  subgraph cluster_after_0 {
+    label="choose — После оптимизаций\nБлоков 3";
+    after_0_B0 [shape=box, label="B0"];
+    after_0_B0 -> after_0_B1;
+    after_0_B1 [shape=box, label="B1"];
+    after_0_B1 -> after_0_B2;
+    after_0_B2 [shape=box, label="B2"];
+  }
+}

@@ -1,0 +1,8 @@
+function choose(x: int) returns (r: int) {
+    let limit = 2 + 3;
+    if (limit > 3) {
+        r = x * 2;
+    } else {
+        r = x - 10;
+    }
+}

@@ -1,0 +1,243 @@
+{
+  "before": {
+    "ir": {
+      "schema_version": "funny.ir.v1",
+      "functions": {
+        "choose": {
+          "params": [
+            "v2"
+          ],
+          "returns": [
+            "v3"
+          ],
+          "types": {
+            "v2": "int",
+            "v3": "int",
+            "v4": "int",
+            "t0": "int",
+            "t1": "bool",
+            "t2": "int",
+            "t3": "int"
+          },
+          "blocks": {
+            "B0": [
+              {
+                "op": "+",
+                "args": [
+                  2,
+                  3
+                ],
+                "dest": "t0"
+              },
+              {
+                "op": "mov",
+                "args": [
+                  "t0"
+                ],
+                "dest": "v4"
+              },
+              {
+                "op": ">",
+                "args": [
+                  "v4",
+                  3
+                ],
+                "dest": "t1"
+              },
+              {
+                "op": "br",
+                "args": [
+                  "t1"
+                ],
+                "targets": [
+                  "B1",
+                  "B3"
+                ]
+              }
+            ],
+            "B1": [
+              {
+                "op": "*",
+                "args": [
+                  "v2",
+                  2
+                ],
+                "dest": "t2"
+              },
+              {
+                "op": "mov",
+                "args": [
+                  "t2"
+                ],
+                "dest": "v3"
+              },
+              {
+                "op": "jmp",
+                "args": [],
+                "targets": [
+                  "B2"
+                ]
+              }
+            ],
+            "B3": [
+              {
+                "op": "-",
+                "args": [
+                  "v2",
+                  10
+                ],
+                "dest": "t3"
+              },
+              {
+                "op": "mov",
+                "args": [
+                  "t3"
+                ],
+                "dest": "v3"
+              },
+              {
+                "op": "jmp",
+                "args": [],
+                "targets": [
+                  "B2"
+                ]
+              }
+            ],
+            "B2": [
+              {
+                "op": "ret",
+                "args": [
+                  "v3"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    "analysis": {
+      "choose": {
+        "cfg": {
+          "B0": [
+            "B1",
+            "B3"
+          ],
+          "B1": [
+            "B2"
+          ],
+          "B3": [
+            "B2"
+          ],
+          "B2": []
+        },
+        "conflicts": {
+          "t0": [],
+          "t1": [],
+          "t2": [],
+          "t3": []
+        },
+        "colors": {
+          "t0": 0,
+          "t1": 0,
+          "t2": 0,
+          "t3": 0
+        },
+        "metrics": {
+          "blocks": 4,
+          "instructions": 11,
+          "temporaries": 4,
+          "colors": 1
+        }
+      }
+    }
+  },
+  "after": {
+    "ir": {
+      "schema_version": "funny.ir.v1",
+      "functions": {
+        "choose": {
+          "params": [
+            "v2"
+          ],
+          "returns": [
+            "v3"
+          ],
+          "types": {
+            "v2": "int",
+            "v3": "int",
+            "v4": "int",
+            "t2": "int"
+          },
+          "blocks": {
+            "B0": [
+              {
+                "op": "jmp",
+                "args": [],
+                "targets": [
+                  "B1"
+                ]
+              }
+            ],
+            "B1": [
+              {
+                "op": "*",
+                "args": [
+                  "v2",
+                  2
+                ],
+                "dest": "t2"
+              },
+              {
+                "op": "mov",
+                "args": [
+                  "t2"
+                ],
+                "dest": "v3"
+              },
+              {
+                "op": "jmp",
+                "args": [],
+                "targets": [
+                  "B2"
+                ]
+              }
+            ],
+            "B2": [
+              {
+                "op": "ret",
+                "args": [
+                  "v3"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    "analysis": {
+      "choose": {
+        "cfg": {
+          "B0": [
+            "B1"
+          ],
+          "B1": [
+            "B2"
+          ],
+          "B2": []
+        },
+        "conflicts": {
+          "t2": []
+        },
+        "colors": {
+          "t2": 0
+        },
+        "metrics": {
+          "blocks": 3,
+          "instructions": 5,
+          "temporaries": 1,
+          "colors": 1
+        }
+      }
+    }
+  }
+}

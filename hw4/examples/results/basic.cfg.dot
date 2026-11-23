@@ -1,0 +1,11 @@
+digraph cfg {
+  node [fontname="monospace"];
+  subgraph cluster_before_0 {
+    label="calc — До оптимизаций\nБлоков 1";
+    before_0_B0 [shape=box, label="B0"];
+  }
+  subgraph cluster_after_0 {
+    label="calc — После оптимизаций\nБлоков 1";
+    after_0_B0 [shape=box, label="B0"];
+  }
+}

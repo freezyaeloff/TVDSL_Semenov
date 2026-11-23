@@ -1,0 +1,207 @@
+{
+  "before": {
+    "ir": {
+      "schema_version": "funny.ir.v1",
+      "functions": {
+        "calc": {
+          "params": [
+            "v2"
+          ],
+          "returns": [
+            "v3"
+          ],
+          "types": {
+            "v2": "int",
+            "v3": "int",
+            "v4": "int",
+            "t0": "int",
+            "v5": "int",
+            "t1": "int",
+            "v6": "int",
+            "t2": "int",
+            "t3": "int"
+          },
+          "blocks": {
+            "B0": [
+              {
+                "op": "+",
+                "args": [
+                  2,
+                  3
+                ],
+                "dest": "t0"
+              },
+              {
+                "op": "mov",
+                "args": [
+                  "t0"
+                ],
+                "dest": "v4"
+              },
+              {
+                "op": "*",
+                "args": [
+                  "v2",
+                  9
+                ],
+                "dest": "t1"
+              },
+              {
+                "op": "mov",
+                "args": [
+                  "t1"
+                ],
+                "dest": "v5"
+              },
+              {
+                "op": "+",
+                "args": [
+                  "v2",
+                  0
+                ],
+                "dest": "t2"
+              },
+              {
+                "op": "mov",
+                "args": [
+                  "t2"
+                ],
+                "dest": "v6"
+              },
+              {
+                "op": "*",
+                "args": [
+                  "v6",
+                  "v4"
+                ],
+                "dest": "t3"
+              },
+              {
+                "op": "mov",
+                "args": [
+                  "t3"
+                ],
+                "dest": "v3"
+              },
+              {
+                "op": "ret",
+                "args": [
+                  "v3"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    "analysis": {
+      "calc": {
+        "cfg": {
+          "B0": []
+        },
+        "conflicts": {
+          "t0": [],
+          "t1": [],
+          "t2": [],
+          "t3": []
+        },
+        "colors": {
+          "t0": 0,
+          "t1": 0,
+          "t2": 0,
+          "t3": 0
+        },
+        "metrics": {
+          "blocks": 1,
+          "instructions": 9,
+          "temporaries": 4,
+          "colors": 1
+        }
+      }
+    }
+  },
+  "after": {
+    "ir": {
+      "schema_version": "funny.ir.v1",
+      "functions": {
+        "calc": {
+          "params": [
+            "v2"
+          ],
+          "returns": [
+            "v3"
+          ],
+          "types": {
+            "v2": "int",
+            "v3": "int",
+            "v4": "int",
+            "v5": "int",
+            "v6": "int",
+            "t2": "int",
+            "t3": "int"
+          },
+          "blocks": {
+            "B0": [
+              {
+                "op": "mov",
+                "args": [
+                  "v2"
+                ],
+                "dest": "t2"
+              },
+              {
+                "op": "mov",
+                "args": [
+                  "t2"
+                ],
+                "dest": "v6"
+              },
+              {
+                "op": "*",
+                "args": [
+                  "v6",
+                  5
+                ],
+                "dest": "t3"
+              },
+              {
+                "op": "mov",
+                "args": [
+                  "t3"
+                ],
+                "dest": "v3"
+              },
+              {
+                "op": "ret",
+                "args": [
+                  "v3"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    "analysis": {
+      "calc": {
+        "cfg": {
+          "B0": []
+        },
+        "conflicts": {
+          "t2": [],
+          "t3": []
+        },
+        "colors": {
+          "t2": 0,
+          "t3": 0
+        },
+        "metrics": {
+          "blocks": 1,
+          "instructions": 5,
+          "temporaries": 2,
+          "colors": 1
+        }
+      }
+    }
+  }
+}

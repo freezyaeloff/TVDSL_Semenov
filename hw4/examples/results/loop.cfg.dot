@@ -1,0 +1,47 @@
+digraph cfg {
+  node [fontname="monospace"];
+  subgraph cluster_before_0 {
+    label="sum — До оптимизаций\nБлоков 7";
+    before_0_B0 [shape=box, label="B0"];
+    before_0_B0 -> before_0_B1;
+    before_0_B1 [shape=box, label="B1"];
+    before_0_B1 -> before_0_B2 [label="true"];
+    before_0_B1 -> before_0_B3 [label="false"];
+    before_0_B2 [shape=box, label="B2"];
+    before_0_B2 -> before_0_B4 [label="true"];
+    before_0_B2 -> before_0_B6 [label="false"];
+    before_0_B4 [shape=box, label="B4"];
+    before_0_B4 -> before_0_B5;
+    before_0_B6 [shape=box, label="B6"];
+    before_0_B6 -> before_0_B5;
+    before_0_B5 [shape=box, label="B5"];
+    before_0_B5 -> before_0_B1;
+    before_0_B3 [shape=box, label="B3"];
+  }
+  subgraph cluster_before_1 {
+    label="twice — До оптимизаций\nБлоков 1";
+    before_1_B0 [shape=box, label="B0"];
+  }
+  subgraph cluster_after_0 {
+    label="sum — После оптимизаций\nБлоков 7";
+    after_0_B0 [shape=box, label="B0"];
+    after_0_B0 -> after_0_B1;
+    after_0_B1 [shape=box, label="B1"];
+    after_0_B1 -> after_0_B2 [label="true"];
+    after_0_B1 -> after_0_B3 [label="false"];
+    after_0_B2 [shape=box, label="B2"];
+    after_0_B2 -> after_0_B4 [label="true"];
+    after_0_B2 -> after_0_B6 [label="false"];
+    after_0_B4 [shape=box, label="B4"];
+    after_0_B4 -> after_0_B5;
+    after_0_B6 [shape=box, label="B6"];
+    after_0_B6 -> after_0_B5;
+    after_0_B5 [shape=box, label="B5"];
+    after_0_B5 -> after_0_B1;
+    after_0_B3 [shape=box, label="B3"];
+  }
+  subgraph cluster_after_1 {
+    label="twice — После оптимизаций\nБлоков 1";
+    after_1_B0 [shape=box, label="B0"];
+  }
+}
